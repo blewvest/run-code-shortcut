@@ -10,16 +10,34 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:run-code.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "run-code.helloWorld",
-				"title": "Hello World"
+				"command": "extension.runCode",
+				"title": "Run Code",
+				"icon": "./assets/play.png"
+			},
+			{
+				"command": "extension.stopCode",
+				"title": "Stop Code",
+				"icon": "./assets/stop.png"
 			}
-		]
+		],
+		"menus": {
+			"touchBar": [
+				{
+					"command": "extension.runCode",
+					"group": "editing"
+				},
+				{
+					"command": "extension.stopCode",
+					"group": "editing"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
